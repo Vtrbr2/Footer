@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Empresa - Soluções Profissionais</title>
+    <style>
+        :root {
+            /* Primitive Color Tokens */
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            /* Custom Purple Gradient Colors */
+            --primary-purple: #8B5CF6;
+            --light-purple: #A78BFA;
+            --lighter-purple: #C084FC;
+            --very-light-purple: #E9D5FF;
+            --gradient-purple: linear-gradient(135deg, #8B5CF6 0%, #C084FC 100%);
+            --background-light: #F9FAFB;
+            --text-dark: #1F2937;
+            --text-light: #FFFFFF;
+
+            /* RGB versions for opacity control */
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+
+            /* Semantic Color Tokens (Light Mode) */
+            --color-background: var(--background-light);
+            --color-surface: var(--color-white);
+            --color-text: var(--text-dark);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--primary-purple);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+
+            /* Typography */
+            --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-size-sm: 14px;
+            --font-size-base: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 24px;
+            --font-size-2xl: 32px;
+            --font-size-3xl: 48px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+
+            /* Spacing */
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-48: 48px;
+            --space-64: 64px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+            /* Animation */
+            --duration-fast: 150ms;
+            --duration-normal: 300ms;
+            --duration-slow: 400ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @font-face {
+            font-family: 'FKGroteskNeue';
+            src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--color-surface);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-16) var(--space-20);
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        /* Hamburger Menu Icon */
+        .hamburger {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+            z-index: 1001;
+            position: relative;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--primary-purple);
+            border-radius: 2px;
+            transition: all var(--duration-normal) var(--ease-standard);
+            position: absolute;
+        }
+
+        .hamburger span:nth-child(1) {
+            transform: translateY(-6px);
+        }
+
+        .hamburger span:nth-child(2) {
+            transform: translateY(0);
+        }
+
+        .hamburger span:nth-child(3) {
+            transform: translateY(6px);
+        }
+
+        /* Hamburger to X animation */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(0) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(0) rotate(-45deg);
+        }
+
+        /* Mobile Navigation Menu */
+        .mobile-nav {
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: var(--gradient-purple);
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: max-height var(--duration-slow) var(--ease-standard),
+                        opacity var(--duration-normal) var(--ease-standard),
+                        transform var(--duration-slow) var(--ease-standard);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-nav.active {
+            max-height: 100vh;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-nav-list {
+            list-style: none;
+            padding: var(--space-24) 0;
+        }
+
+        .mobile-nav-item {
+            margin: 0;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: var(--space-16) var(--space-32);
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--duration-fast) var(--ease-standard);
+            border-left: 4px solid transparent;
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link:active {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-left-color: var(--text-light);
+            padding-left: 36px;
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 64px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-64) var(--space-20);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(192, 132, 252, 0.05) 100%);
+        }
+
+        .hero-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-16);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-32);
+            max-width: 600px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: var(--space-16) var(--space-32);
+            background: var(--gradient-purple);
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-semibold);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--duration-normal) var(--ease-standard);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: var(--space-64) var(--space-20);
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-32);
+            text-align: center;
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-content {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-base);
+            line-height: 1.8;
+            margin-bottom: var(--space-24);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-24);
+            margin-top: var(--space-32);
+        }
+
+        .card {
+            background: var(--color-surface);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: all var(--duration-normal) var(--ease-standard);
+            border: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-purple);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-purple);
+            border-radius: var(--radius-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-16);
+            font-size: 24px;
+        }
+
+        .card-title {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-12);
+            color: var(--color-text);
+        }
+
+        .card-description {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+        }
+
+        /* Testimonial Card */
+        .testimonial {
+            background: var(--color-surface);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: var(--space-24);
+        }
+
+        .testimonial-stars {
+            color: #FFC107;
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-12);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-16);
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: var(--space-20);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--space-8);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text);
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: var(--space-12) var(--space-16);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-family: var(--font-family-base);
+            transition: border-color var(--duration-fast) var(--ease-standard);
+            background-color: var(--color-surface);
+            color: var(--color-text);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: var(--space-16);
+            background: var(--gradient-purple);
+            color: var(--text-light);
+            border: none;
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, #F3F4F6 0%, rgba(139, 92, 246, 0.08) 50%, rgba(107, 157, 255, 0.12) 100%);
+            color: var(--text-dark);
+            padding: var(--space-64) var(--space-20) var(--space-32);
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-48);
+            margin-bottom: var(--space-48);
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-column-title {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-dark);
+            margin-bottom: var(--space-20);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-link-item {
+            margin-bottom: var(--space-12);
+        }
+
+        .footer-link {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            transition: all var(--duration-fast) var(--ease-standard);
+            display: inline-block;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-purple);
+            transform: translateX(4px);
+        }
+
+        .footer-subscribe {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-subscribe-description {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            margin-bottom: var(--space-20);
+        }
+
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-12);
+        }
+
+        .subscribe-input {
+            flex: 1;
+            padding: var(--space-12) var(--space-16);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-family: var(--font-family-base);
+            background-color: var(--color-white);
+            color: var(--text-dark);
+            transition: all var(--duration-fast) var(--ease-standard);
+        }
+
+        .subscribe-input:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+        }
+
+        .subscribe-input::placeholder {
+            color: var(--color-text-secondary);
+            opacity: 0.6;
+        }
+
+        .subscribe-button {
+            padding: var(--space-12) var(--space-24);
+            background: linear-gradient(135deg, #8B5CF6 0%, #6B9DFF 100%);
+            color: var(--text-light);
+            border: none;
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .subscribe-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+            background: linear-gradient(135deg, #7C3AED 0%, #5B8DEE 100%);
+        }
+
+        .subscribe-button:active {
+            transform: translateY(0);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.3) 50%, transparent 100%);
+            margin: var(--space-32) 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-24);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: var(--space-16);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(107, 157, 255, 0.15) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50%;
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: var(--font-weight-semibold);
+            transition: all var(--duration-normal) var(--ease-standard);
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #8B5CF6 0%, #6B9DFF 100%);
+            color: var(--text-light);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .footer-copyright {
+            color: var(--color-text-secondary);
+            font-size: var(--font-size-sm);
+            text-align: center;
+        }
+
+        /* Footer Responsive */
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-48);
+            }
+
+            .subscribe-form {
+                flex-direction: row;
+            }
+
+            .subscribe-button {
+                min-width: 120px;
+            }
+
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .footer-copyright {
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .header-container {
+                padding: var(--space-20) var(--space-32);
+            }
+
+            .hero-title {
+                font-size: 56px;
+            }
+
+            .hero-subtitle {
+                font-size: var(--font-size-xl);
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section {
+                padding: var(--space-64) var(--space-48);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hamburger {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: none;
+            }
+
+            .desktop-nav {
+                display: flex;
+                gap: var(--space-32);
+            }
+
+            .desktop-nav-link {
+                color: var(--color-text);
+                text-decoration: none;
+                font-weight: var(--font-weight-medium);
+                font-size: var(--font-size-base);
+                position: relative;
+                transition: color var(--duration-fast) var(--ease-standard);
+            }
+
+            .desktop-nav-link:hover {
+                color: var(--primary-purple);
+            }
+
+            .desktop-nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--gradient-purple);
+                transition: width var(--duration-normal) var(--ease-standard);
+            }
+
+            .desktop-nav-link:hover::after {
+                width: 100%;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#home" class="logo">Minha Empresa</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <a href="#home" class="desktop-nav-link">Home</a>
+                <a href="#sobre" class="desktop-nav-link">Sobre</a>
+                <a href="#servicos" class="desktop-nav-link">Serviços</a>
+                <a href="#avaliacoes" class="desktop-nav-link">Avaliações</a>
+                <a href="#contato" class="desktop-nav-link">Contato</a>
+            </nav>
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="#home" class="mobile-nav-link">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#sobre" class="mobile-nav-link">Sobre</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#servicos" class="mobile-nav-link">Serviços</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#avaliacoes" class="mobile-nav-link">Avaliações</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="#contato" class="mobile-nav-link">Contato</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1 class="hero-title">Bem-vindo ao Nosso Site</h1>
+            <p class="hero-subtitle">Soluções profissionais com design moderno</p>
+            <a href="#contato" class="cta-button">Comece Agora</a>
+        </section>
+
+        <!-- About Section -->
+        <section id="sobre" class="section">
+            <h2 class="section-title">Sobre Nós</h2>
+            <p class="section-content">
+                Somos uma empresa dedicada a fornecer soluções inovadoras e profissionais para nossos clientes. 
+                Com anos de experiência no mercado, oferecemos serviços de alta qualidade que superam as expectativas.
+            </p>
+            <p class="section-content">
+                Nossa equipe é composta por profissionais altamente qualificados e apaixonados pelo que fazem. 
+                Trabalhamos incansavelmente para garantir que cada projeto seja executado com excelência.
+            </p>
+        </section>
+
+        <!-- Services Section -->
+        <section id="servicos" class="section">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">💼</div>
+                    <h3 class="card-title">Consultoria Empresarial</h3>
+                    <p class="card-description">
+                        Oferecemos consultoria estratégica para ajudar sua empresa a crescer e alcançar novos patamares de sucesso.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3 class="card-title">Design &amp; Branding</h3>
+                    <p class="card-description">
+                        Criamos identidades visuais únicas e memoráveis que refletem a essência da sua marca.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h3 class="card-title">Desenvolvimento Web</h3>
+                    <p class="card-description">
+                        Desenvolvemos websites modernos, responsivos e otimizados para todos os dispositivos.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3 class="card-title">Apps Móveis</h3>
+                    <p class="card-description">
+                        Criamos aplicativos mobile nativos e híbridos com foco em usabilidade e performance.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Marketing Digital</h3>
+                    <p class="card-description">
+                        Estratégias de marketing digital que aumentam sua visibilidade e geram resultados reais.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔒</div>
+                    <h3 class="card-title">Segurança</h3>
+                    <p class="card-description">
+                        Protegemos seus dados e sistemas com as mais avançadas tecnologias de segurança.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="avaliacoes" class="section">
+            <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
+            <div class="testimonial">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">
+                    "Excelente trabalho! A equipe foi muito profissional e entregou tudo no prazo. 
+                    Superou nossas expectativas em todos os aspectos."
+                </p>
+                <p class="testimonial-author">— Maria Silva, CEO da TechCorp</p>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">
+                    "Parceria excepcional! Eles realmente entendem as necessidades do cliente e 
+                    entregam soluções criativas e eficientes."
+                </p>
+                <p class="testimonial-author">— João Santos, Diretor de Marketing</p>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">
+                    "Recomendo fortemente! Qualidade impecável e atendimento personalizado. 
+                    Com certeza voltaremos a trabalhar juntos."
+                </p>
+                <p class="testimonial-author">— Ana Costa, Empreendedora</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contato" class="section">
+            <h2 class="section-title">Entre em Contato</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name" class="form-label">Nome</label>
+                    <input type="text" id="name" class="form-input" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="seu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">Mensagem</label>
+                    <textarea id="message" class="form-textarea" placeholder="Como podemos ajudar?" required></textarea>
+                </div>
+                <button type="submit" class="form-button">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Store Column -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Store</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item">
+                            <a href="#all-items" class="footer-link">All Items</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#featured" class="footer-link">Featured</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#special" class="footer-link">Special</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#new-arrivals" class="footer-link">New Arrivals</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#on-sale" class="footer-link">On Sale</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#clearance" class="footer-link">Clearance</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- About Column -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">About</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item">
+                            <a href="#about-us" class="footer-link">About Us</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#careers" class="footer-link">Careers</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#services" class="footer-link">Services</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#best-sellers" class="footer-link">Best Sellers</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#faq" class="footer-link">FAQ</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#blog" class="footer-link">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Legal Column -->
+                <div class="footer-column">
+                    <h4 class="footer-column-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item">
+                            <a href="#terms" class="footer-link">Terms &amp; Conditions</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#privacy" class="footer-link">Privacy Policy</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#legality" class="footer-link">Legality</a>
+                        </li>
+                        <li class="footer-link-item">
+                            <a href="#license" class="footer-link">Author License</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Subscribe Column -->
+                <div class="footer-column footer-subscribe">
+                    <h4 class="footer-column-title">Subscribe</h4>
+                    <p class="footer-subscribe-description">
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Ligula enim vitium molestiae dissoluendum.
+                    </p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <input 
+                            type="email" 
+                            class="subscribe-input" 
+                            placeholder="Seu email"
+                            required
+                            aria-label="Email para newsletter"
+                        >
+                        <button type="submit" class="subscribe-button">Send</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="footer-divider"></div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-social">
+                    <a href="#facebook" class="social-link" aria-label="Facebook" target="_blank">f</a>
+                    <a href="#twitter" class="social-link" aria-label="Twitter" target="_blank">𝕏</a>
+                    <a href="#instagram" class="social-link" aria-label="Instagram" target="_blank">📷</a>
+                    <a href="#linkedin" class="social-link" aria-label="LinkedIn" target="_blank">in</a>
+                    <a href="#tiktok" class="social-link" aria-label="TikTok" target="_blank">♪</a>
+                </div>
+                <p class="footer-copyright">
+                    &copy; 2025 Minha Empresa. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        // Toggle menu when hamburger is clicked
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real application, you would send this data to a server
+            alert(`Obrigado, ${name}! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve através do email ${email}.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Newsletter Subscribe Form Submission
+        const subscribeForm = document.getElementById('subscribeForm');
+        subscribeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = this.querySelector('.subscribe-input');
+            const email = emailInput.value;
+            
+            // In a real application, you would send this data to a server
+            alert(`Obrigado por se inscrever! Você receberá nossas novidades no email: ${email}`);
+            
+            // Reset form
+            subscribeForm.reset();
+        });
+
+        // Smooth scroll enhancement for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerOffset = 64;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
